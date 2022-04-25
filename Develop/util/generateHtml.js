@@ -4,8 +4,9 @@ const Engineer = require('./lib/Engineer.js');
 const Intern = require('./lib/Intern.js');
 const Manager = require('./lib/Manager.js');
 const fs=requirer('fs');
-const team = []
-function askQuestion(){
+const teamArray = []
+
+const generateTeam = team => {
     inquirer.prompt([
         {
             type:"list",
@@ -18,6 +19,9 @@ function askQuestion(){
             case "Manager":
                 addManager();
                 break;
+            case "Engineer":
+                addEnginner();
+                break;
         }
     })
 }
@@ -29,13 +33,55 @@ const addManager =()=>{
             message:"What is your name?"
 
         },
+        {
+            type:"input",
+            name:"managerId",
+            message:"What is your Id?",
+        },
+        {
+            type:"input",
+            name:"managerEmail",
+            message:"What is your E-mail Address?",
+        },
+        {
+            type:"input",
+            name:"managerOfficeNumber",
+            message:"What is your Office Number?",
+        },
     ]).then(answer =>{
-        const newManager = new Manager(answer.managerName)
-        team.push(newManager)
-    })
-}
-const generateTeam = team => {
+        const newManager = new Manager(answer.managerName, answer.managerId , answer.managerEmail, answer.managerOfficeNumber);
+        teamArray.push(newManager)
+        generateTeam()
+    });
 
+    const addEngineer =()=>{
+        inquirer.prompt([
+            {
+                type:"input",
+                name:"engineerName",
+                message:"What is your name?"
+    
+            },
+            {
+                type:"input",
+                name:"engineerId",
+                message:"What is your Id?",
+            },
+            {
+                type:"input",
+                name:"engineerEmail",
+                message:"What is your E-mail Address?",
+            },
+            {
+                type:"input",
+                name:"githubUsername",
+                message:"What is your Github username?",
+            },
+        ]).then(answer =>{
+            const newManager = new Manager(answer.managerName, answer.managerId , answer.managerEmail, answer.managerOfficeNumber);
+            teamArray.push(newManager)
+            generateTeam()
+        });
     
     // create the manager html
     const generateManager = manager => {
