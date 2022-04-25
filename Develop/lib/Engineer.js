@@ -6,14 +6,14 @@ class Engineer extends Employee{
         super(name,id,email);
         this.gitHub = gitHub;
     }
-    getGitHub(){
+    getGithub(){
        return this.gitHub
     }
     getRole(){
         return "Engineer";
     }
 }
-const githubuser=[];
-const githb = new Engineer (" ",3432, "dani.com",githubuser);
+const  testValue = "GitHubUser";
+const e = new Engineer ("Dani ",4, "dani@dani",testValue);
 
 module.exports = Engineer;
