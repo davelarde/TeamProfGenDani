@@ -25,4 +25,4 @@ getRole(){
 // const newEmail = new Employee("dani@dani");
 // newEmail.getEmail()
 
-module.exports = Employee;
+module.exports = Employee

@@ -17,4 +17,4 @@ const  testValue = "GitHubUser";
 const e = new Engineer ("Dani ",4, "dani@dani",testValue);
 e.getGithub();
 
-module.exports = Engineer;
+module.exports = Engineer

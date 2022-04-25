@@ -1,12 +1,13 @@
 // create the team
-const inquirer= require('inquirer');
-const Engineer = require('./lib/Engineer.js');
-const Intern = require('./lib/Intern.js');
-const Manager = require('./lib/Manager.js');
-const fs=requirer('fs');
+const inquirer= require("inquirer");
+const Engineer = require("./")
+const Intern = require("");
+const Manager = require("./");
+const fs=requirer("fs");
 const teamArray = []
 
 const generateTeam = team => {
+    const askQuestion =()=>{
     inquirer.prompt([
         {
             type:"list",
@@ -21,6 +22,12 @@ const generateTeam = team => {
                 break;
             case "Engineer":
                 addEnginner();
+                break;
+            case "Intern":
+                addIntern();
+                break;
+            default:
+                console.log("Your team is ready!")
                 break;
         }
     })
@@ -48,12 +55,12 @@ const addManager =()=>{
             name:"managerOfficeNumber",
             message:"What is your Office Number?",
         },
-    ]).then(answer =>{
-        const newManager = new Manager(answer.managerName, answer.managerId , answer.managerEmail, answer.managerOfficeNumber);
+    ]).then(answers =>{
+        const newManager = new Manager(answers.managerName, answers.managerId , answers.managerEmail, answers.managerOfficeNumber);
         teamArray.push(newManager)
-        generateTeam()
+        askQuestion()
     });
-
+}
     const addEngineer =()=>{
         inquirer.prompt([
             {
@@ -77,11 +84,41 @@ const addManager =()=>{
                 name:"githubUsername",
                 message:"What is your Github username?",
             },
-        ]).then(answer =>{
-            const newManager = new Manager(answer.managerName, answer.managerId , answer.managerEmail, answer.managerOfficeNumber);
-            teamArray.push(newManager)
-            generateTeam()
+        ]).then(answers =>{
+            const newEngineer = new Engineer(answers.engineerName, answers.engineerId , answers.engineerEmail, answers.githubUsername);
+            teamArray.push(newEngineer)
+            askQuestion()
         });
+    }
+    const addIntern =()=>{
+        inquirer.prompt([
+            {
+                type:"input",
+                name:"internName",
+                message:"What is your name?"
+    
+            },
+            {
+                type:"input",
+                name:"internId",
+                message:"What is your Id?",
+            },
+            {
+                type:"input",
+                name:"internEmail",
+                message:"What is your E-mail Address?",
+            },
+            {
+                type:"input",
+                name:"schoolName",
+                message:"What is your school's name?",
+            },
+        ]).then(answer =>{
+            const newIntern = new Intern(answers.internName, answers.internId , answers.internEmail, answers.schoolName);
+            teamArray.push(newEngineer)
+            askQuestion()
+        });
+    }
     
     // create the manager html
     const generateManager = manager => {
@@ -197,4 +234,5 @@ module.exports = team => {
 </body>
 </html>
     `;
+    
 };
