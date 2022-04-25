@@ -1,6 +1,42 @@
 // create the team
+const inquirer= require('inquirer');
+const Engineer = require('./lib/Engineer.js');
+const Intern = require('./lib/Intern.js');
+const Manager = require('./lib/Manager.js');
+const fs=requirer('fs');
+const team = []
+function askQuestion(){
+    inquirer.prompt([
+        {
+            type:"list",
+            name : "employeeChoice",
+            message:"What type of employee would you like to add to the team?",
+            choices:["Manager", "Engineer","Intern"],
+        },
+    ]).then(answers =>{
+        switch (answers.question){
+            case "Manager":
+                addManager();
+                break;
+        }
+    })
+}
+const addManager =()=>{
+    inquirer.prompt([
+        {
+            type:"input",
+            name:"managerName",
+            message:"What is your name?"
+
+        },
+    ]).then(answer =>{
+        const newManager = new Manager(answer.managerName)
+        team.push(newManager)
+    })
+}
 const generateTeam = team => {
 
+    
     // create the manager html
     const generateManager = manager => {
         return `
