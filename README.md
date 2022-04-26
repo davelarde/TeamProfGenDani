@@ -15,11 +15,11 @@ The Team Profile Generator will generate a team, that will be created upon the a
 Please find below a quick video on how this app works. After this video, I suggest you to get .mp4 extension to watch it.
 
 
-["Dani's Team Profile generator"](./Demo/readme%20generator%20video%20demo.mp4)
+["Dani's Team Profile generator"](./Demos/TeamGeneratorVideo.mp4)
 
 ## Gif Demo
 In case Video is not working for you,find below a gif to my homework!
-["Dani's Team Profile Generator GIF"](./Demo/readme-generator-video-demo.gif)
+["Dani's Team Profile Generator GIF"](./Demos/TeamGeneratorVideo.gif)
 
 
 
@@ -27,11 +27,11 @@ In case Video is not working for you,find below a gif to my homework!
 
 
 
-!["Dani's Team Profile generator GIF"](./Demo/readme-generator-video-demo.gif)
+!["Dani's Team Profile generator GIF"](./Demos/TeamGeneratorVideo.gif)
 
 ## Github Repo
 Click on the link below to find the link to my repo!
-["Team Profile  Generator"](https://github.com/davelarde/Readme-gen.git)
+["Team Profile  Generator"](https://github.com/davelarde/TeamProfGenDani.git)
 
 
 
